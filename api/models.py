@@ -10,7 +10,7 @@ class Student(models.Model):
 	faceId = models.CharField(max_length=200)
 	address = models.CharField(max_length=500)
 	standardId = models.ForeignKey("Standard", verbose_name=("standardId"), on_delete=models.CASCADE)
-	slug = models.SlugField()
+	slug = models.SlugField(null=True, blank=True)
 
 	def __str__(self):
 		return f'{self.name} {self.gender} {self.address}'
@@ -25,7 +25,7 @@ class Standard(models.Model):
 	standardId = models.IntegerField()
 	name = models.CharField(max_length=20)
 	section = models.CharField(max_length=50)
-	slug = models.SlugField()
+	slug = models.SlugField(null=True, blank=True)
 
 	def __str__(self) -> str:
 		return f'{self.name} {self.section}'
@@ -42,6 +42,7 @@ class Teacher(models.Model):
 	email = models.EmailField()
 	password = models.CharField(max_length=150)
 	phone = models.BigIntegerField()
+	slug = models.SlugField(null=True, blank=True)
 
 	def __str__(self) -> str:
 		return f'{self.name} {self.email} {self.phone}'
@@ -55,6 +56,7 @@ class Teacher(models.Model):
 class Subject(models.Model):
 	subjectId = models.IntegerField()
 	name = models.CharField(max_length=150)
+	slug = models.SlugField(null=True, blank=True)
 
 	def __str__(self) -> str:
 		return f'{self.subjectId} {self.name}'
@@ -71,7 +73,7 @@ class Attendance(models.Model):
 	date = models.DateField(auto_now_add=True)
 	time = models.DateField(auto_now=True)
 	subjectId = models.ForeignKey("Subject", verbose_name=('subjectId'), on_delete=models.CASCADE)
-	slug = models.SlugField()
+	slug = models.SlugField(null=True, blank=True)
 	isPresent = models.BooleanField(default=True)
 
 	def __str__(self) -> str:
