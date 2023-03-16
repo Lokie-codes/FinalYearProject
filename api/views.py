@@ -1,3 +1,6 @@
+# Path: api/views.py
+# Description: This file contains the views for the api app.
+
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import (

@@ -1,3 +1,6 @@
+# Path: api/urls.py
+# Description: This file contains the urls for the api app.
+
 from django.urls import path
 from .views import (
     apiOverview,

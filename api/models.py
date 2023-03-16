@@ -1,3 +1,6 @@
+# Path: api/models.py
+# Description: This file contains the models for the api app.
+
 from django.db import models
 
 class Student(models.Model):
