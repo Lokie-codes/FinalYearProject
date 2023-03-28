@@ -3,6 +3,7 @@
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from deepface import DeepFace
 from .serializers import (
     StudentSerializer,
     StandardSerializer,
@@ -34,6 +35,9 @@ def apiOverview(request):
 
 class StudentList(generics.ListCreateAPIView):
     queryset = Student.objects.all()
+    # faces = queryset.values_list("faceImg", flat=True)
+    # print(faces)
+    # embeddings = DeepFace.represent(faces, model_name="Facenet")
     serializer_class = StudentSerializer
 
 
